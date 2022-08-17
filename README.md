@@ -1,15 +1,3 @@
-# League Themed RPG Bot
+# Random Duels And Stuff Bot (for Discord)
 
-Archival note: no longer being worked on, will remain unfinished - making an RPG in Discord by yourself is hard
-
-----
-
-Player data is saved/loaded in a json file called `playerData.json` adjacent to the executable
-
-The bot token is loaded from a file called `token.txt` adjacent to the executable, of course the client won't work if there's no token
-
-Item/skill data is all saved in the `LeagueThemedRPGBot.Refs.*` namespace(s) - all items and skills are derived from the abstract classes in `LeagueThemedRPGBot.Items` and `LeagueThemedRPGBot.Skills` namespaces if you want examples
-
-To add new items and skills, create a class extending the appropriate abstract class with proper override, and register a new id for your item/skill within the ItemId/SkillId enums to use with the custom `RegisterSkill` and `RegisterItem` attributes. Then apply the appropriate atrribute to your new class with your new id that you added. 
-
-IMPORTANT: make sure the 'None' enums are ALWAYS 0, and if making a new Item, making sure your new id is within the appropriate bounds depending on your new item type (see comments in ItemId regarding register bounds per type)
+Pretty much just [this](https://github.com/hanzbadua/LeagueThemedRPGBot), but with no stupid League theme and without hard-to-implement RPG mechanics such as quests; basically this is just a "for fun" bot that will have both PvE and PvP combat, possibly some sort of stupid lootbox mechanic for funsies, and some sort of investing+idle income system
