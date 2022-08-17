@@ -1,47 +1,45 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System;
+using System.Text;
 
 namespace RandomDuelsAndStuffBot.Players
 {
     public sealed class PlayerData
     {
-        private const string _playerDataLocation = "playerData.json";
+        private const string _playerDataLocation = "player.dat";
 
         public PlayerData()
         {
-            // if data file doesn't exist we just assume the bot is starting fresh
-            // as im not stupid
-            if (!File.Exists(_playerDataLocation))
+            if (File.Exists(_playerDataLocation))
             {
-                Dictionary<ulong, Player> newData = new();
-                using FileStream saveData = File.Create(_playerDataLocation);
-                JsonSerializer.Serialize(saveData, newData, _serializationOptions);
-                Data = newData;
-                return;
+                using FileStream fileData = File.OpenRead(_playerDataLocation);
+                Data = JsonSerializer.Deserialize<Dictionary<ulong, Player>>(fileData, _serializationOptions);
             }
-
-            using FileStream fileData = File.OpenRead(_playerDataLocation);
-            Data = JsonSerializer.Deserialize<Dictionary<ulong, Player>>(fileData, _serializationOptions);
+            else
+                Data = new();
         }
+
+        // todo: string compression
 
         public async Task SaveAsync()
         {
-            using FileStream saveData = File.Create(_playerDataLocation);
+            await using FileStream saveData = File.Create(_playerDataLocation);
             await JsonSerializer.SerializeAsync(saveData, Data, _serializationOptions);
-            await saveData.DisposeAsync();
         }
 
-        public Dictionary<ulong, Player> Data { get; } = new();
+        public Dictionary<ulong, Player> Data { get; }
 
         private readonly JsonSerializerOptions _serializationOptions = new()
         {
             ReferenceHandler = ReferenceHandler.Preserve,
             AllowTrailingCommas = true,
             IncludeFields = false,
-            WriteIndented = true
+            WriteIndented = false
         };
     }
 }
