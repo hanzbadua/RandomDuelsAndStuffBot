@@ -1,4 +1,4 @@
-﻿using RandomDuelsAndStuffBot.Common;
+﻿using RandomDuelsAndStuffBot.CommonInterfaces;
 using System.Collections.Generic;
 
 namespace RandomDuelsAndStuffBot.Enemies

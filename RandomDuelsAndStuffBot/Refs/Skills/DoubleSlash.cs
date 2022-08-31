@@ -1,6 +1,6 @@
 ﻿using DSharpPlus.Entities;
 using RandomDuelsAndStuffBot.Combat;
-using RandomDuelsAndStuffBot.Common;
+using RandomDuelsAndStuffBot.CommonInterfaces;
 using RandomDuelsAndStuffBot.Enemies;
 using RandomDuelsAndStuffBot.Players;
 using RandomDuelsAndStuffBot.Skills;

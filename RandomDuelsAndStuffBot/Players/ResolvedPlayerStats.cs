@@ -1,4 +1,4 @@
-﻿using RandomDuelsAndStuffBot.Common;
+﻿using RandomDuelsAndStuffBot.CommonInterfaces;
 
 namespace RandomDuelsAndStuffBot.Players
 {

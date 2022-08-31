@@ -1,8 +1,10 @@
-﻿using System;
+﻿using RandomDuelsAndStuffBot.Refs;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace RandomDuelsAndStuffBot.Items
 {
-    // Items directly derived from this type are 'Normal' items and MUST have an ItemId in the 'Normal' range
     public abstract class Item
     {
         public abstract string Name { get; }
@@ -24,9 +26,9 @@ namespace RandomDuelsAndStuffBot.Items
             return "Normal";
         }
 
-        public static Clz Get<Clz>() where Clz : Item, new()
+        public static T Get<T>() where T : Item, new()
         {
-            return new Clz();
+            return new T();
         }
     }
 }

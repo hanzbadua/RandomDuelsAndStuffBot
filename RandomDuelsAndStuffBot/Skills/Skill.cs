@@ -1,6 +1,11 @@
 ﻿using DSharpPlus.Entities;
 using RandomDuelsAndStuffBot.Enemies;
+using RandomDuelsAndStuffBot.Items;
 using RandomDuelsAndStuffBot.Players;
+using RandomDuelsAndStuffBot.Refs;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace RandomDuelsAndStuffBot.Skills
 {
@@ -17,9 +22,9 @@ namespace RandomDuelsAndStuffBot.Skills
             return Name;
         }
 
-        public static Clz Get<Clz>() where Clz : Skill, new()
+        public static T Get<T>() where T : Skill, new()
         {
-            return new Clz();
+            return new T();
         }
     }
 }
