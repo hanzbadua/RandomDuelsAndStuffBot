@@ -53,7 +53,7 @@ namespace RandomDuelsAndStuffBot
             _client.UseInteractivity(new InteractivityConfiguration
             {
                 PollBehaviour = PollBehaviour.DeleteEmojis,
-                Timeout = TimeSpan.FromMinutes(1)
+                Timeout = TimeSpan.FromSeconds(10)
             });
 
             // register events related to our client

@@ -33,7 +33,7 @@ namespace RandomDuelsAndStuffBot.Commands
                 return;
             }
 
-            _ = await ctx.RespondAsync(msg
+             await ctx.RespondAsync(msg
                 .WithColor(Globals.ColorBlue)
                 .WithDescription("Initializing character... successful!")
                 .Build());
@@ -53,7 +53,7 @@ namespace RandomDuelsAndStuffBot.Commands
             }
 
             Player p = Players.Data[ctx.User.Id]; 
-            _ = await ctx.RespondAsync($"Current gold amount: {p.Gold}");
+             await ctx.RespondAsync($"Current gold amount: {p.Gold}");
         }
 
         [Command("stats"), Description("Check your current stats")]
@@ -84,7 +84,7 @@ namespace RandomDuelsAndStuffBot.Commands
             .AddField("Resistances", $"{s.Armor} armor | {s.MagicResist} magic resist");
             //.WithFooter($"to check your inventory, use '$inventory'{NL}to check your gold, use '$balance'{NL}to check your equipped items, use '$equipped'");
 
-            _ = await ctx.RespondAsync(msg.Build());
+             await ctx.RespondAsync(msg.Build());
         }
 
         [Command("equipped"), Description("Check your currently equipped items and currently learned skills")]
@@ -104,7 +104,7 @@ namespace RandomDuelsAndStuffBot.Commands
                 Color = Globals.ColorBlue
             };
 
-            _ = msg.AddField("Slot 1", p.Slot1 is not null ? p.Slot1.Name : na)
+             msg.AddField("Slot 1", p.Slot1 is not null ? p.Slot1.Name : na)
                 .AddField("Slot 2", p.Slot2 is not null ? p.Slot2.Name : na)
                 .AddField("Slot 3", p.Slot3 is not null ? p.Slot3.Name : na)
                 .AddField("Slot 4", p.Slot4 is not null ? p.Slot4.Name : na)
@@ -113,7 +113,7 @@ namespace RandomDuelsAndStuffBot.Commands
                 .AddField("Skill (1)", p.Skill1 is not null ? p.Skill1.Name : na)
                 .AddField("Skill (2)", p.Skill2 is not null ? p.Skill2.Name : na)
                 .AddField("Skill (3)", p.Skill3 is not null ? p.Skill3.Name : na);
-            _ = await ctx.RespondAsync(msg.Build());
+             await ctx.RespondAsync(msg.Build());
         }
 
         /*

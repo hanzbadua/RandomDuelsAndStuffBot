@@ -46,7 +46,7 @@ namespace RandomDuelsAndStuffBot.Commands
                 Description = contents
             };
 
-            _ = await ctx.RespondAsync(msg.Build());
+             await ctx.RespondAsync(msg.Build());
         }
 
         [Command("skills"), Description("View a skill in your known skills collection")]
@@ -73,7 +73,7 @@ namespace RandomDuelsAndStuffBot.Commands
             Skill skill = p.KnownSkills[index];
             DiscordEmbedBuilder msg = new() { Title = $"Viewing skill: {skill.Name}", Color = Globals.ColorBlue, Description = skill.Description };
 
-            _ = await ctx.RespondAsync(msg.Build());
+             await ctx.RespondAsync(msg.Build());
         }
 
         [Command("learn")]
@@ -84,7 +84,7 @@ namespace RandomDuelsAndStuffBot.Commands
                 return;
             }
 
-            _ = await ctx.RespondAsync("You need to specify a skill to learn");
+             await ctx.RespondAsync("You need to specify a skill to learn");
         }
 
         [Command("learn"), Description("Learn a skill in your known skills collection")]
@@ -224,39 +224,39 @@ namespace RandomDuelsAndStuffBot.Commands
                 {
                     if (p.Skill1 is not null)
                     {
-                        _ = await req.ModifyAsync(msg.WithDescription($"Skill {p.Skill1.Name} unlearned in slot one").WithColor(Globals.ColorGreen).Build());
+                         await req.ModifyAsync(msg.WithDescription($"Skill {p.Skill1.Name} unlearned in slot one").WithColor(Globals.ColorGreen).Build());
                         p.KnownSkills.Add(p.Skill1);
                         p.Skill1 = null;
                     }
                     else
                     {
-                        _ = await req.ModifyAsync(msg.WithDescription($"There is no skill to unlearn in slot one - no changes made").WithColor(Globals.ColorRed).Build());
+                         await req.ModifyAsync(msg.WithDescription($"There is no skill to unlearn in slot one - no changes made").WithColor(Globals.ColorRed).Build());
                     }
                 }
                 else if (res.Result.Emoji == twoEmoji)
                 {
                     if (p.Skill2 is not null)
                     {
-                        _ = await req.ModifyAsync(msg.WithDescription($"Skill {p.Skill2.Name} unlearned in slot two").WithColor(Globals.ColorGreen).Build());
+                         await req.ModifyAsync(msg.WithDescription($"Skill {p.Skill2.Name} unlearned in slot two").WithColor(Globals.ColorGreen).Build());
                         p.KnownSkills.Add(p.Skill2);
                         p.Skill2 = null;
                     }
                     else
                     {
-                        _ = await req.ModifyAsync(msg.WithDescription($"There is no skill to unlearn in slot two - no changes made").WithColor(Globals.ColorRed).Build());
+                         await req.ModifyAsync(msg.WithDescription($"There is no skill to unlearn in slot two - no changes made").WithColor(Globals.ColorRed).Build());
                     }
                 }
                 else if (res.Result.Emoji == threeEmoji)
                 {
                     if (p.Skill3 is not null)
                     {
-                        _ = await req.ModifyAsync(msg.WithDescription($"Skill {p.Skill3.Name} unlearned in slot three").WithColor(Globals.ColorGreen).Build());
+                         await req.ModifyAsync(msg.WithDescription($"Skill {p.Skill3.Name} unlearned in slot three").WithColor(Globals.ColorGreen).Build());
                         p.KnownSkills.Add(p.Skill3);
                         p.Skill3 = null;
                     }
                     else
                     {
-                        _ = await req.ModifyAsync(msg.WithDescription($"There is no skill to unlearn in slot three - no changes made").WithColor(Globals.ColorRed).Build());
+                         await req.ModifyAsync(msg.WithDescription($"There is no skill to unlearn in slot three - no changes made").WithColor(Globals.ColorRed).Build());
                     }
                 }
             }

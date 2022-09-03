@@ -30,13 +30,13 @@ namespace RandomDuelsAndStuffBot.Commands
         {
             if (!Players.Data.ContainsKey(ctx.User.Id))
             {
-                _ = await ctx.RespondAsync("You don't seem to exist in the player database - have you initialized? `$init`");
+                 await ctx.RespondAsync("You don't seem to exist in the player database - have you initialized? `$init`");
                 return true;
             } 
             
             if (Players.Data[ctx.User.Id].Busy)
             {
-                _ = await ctx.RespondAsync("You appear to be doing something else right now - please resolve that first");
+                 await ctx.RespondAsync("You appear to be doing something else right now - please resolve that first");
                 return true;
             }
 
@@ -50,7 +50,7 @@ namespace RandomDuelsAndStuffBot.Commands
             // Inventory is empty check
             if (p.Inventory.Count == 0)
             {
-                _ = await ctx.RespondAsync("Your inventory is empty");
+                 await ctx.RespondAsync("Your inventory is empty");
                 return true;
             }
 
@@ -61,7 +61,7 @@ namespace RandomDuelsAndStuffBot.Commands
         {
             if (p.KnownSkills.Count == 0)
             {
-                _ = await ctx.RespondAsync("You have no unused skills to view");
+                 await ctx.RespondAsync("You have no unused skills to view");
                 return true;
             }
 
@@ -74,7 +74,7 @@ namespace RandomDuelsAndStuffBot.Commands
         {
             if (p.Inventory.ElementAtOrDefault(index) is null)
             {
-                _ = await ctx.RespondAsync($"There is no valid item in inventory index {index + 1}"); // count is index+1
+                 await ctx.RespondAsync($"There is no valid item in inventory index {index + 1}"); // count is index+1
                 return false;
             }
 
@@ -85,7 +85,7 @@ namespace RandomDuelsAndStuffBot.Commands
         {
             if (p.KnownSkills.ElementAtOrDefault(index) is null)
             {
-                _ = await ctx.RespondAsync($"There is no valid item in unused skill collection index {index + 1}"); // count is index+1
+                 await ctx.RespondAsync($"There is no valid item in unused skill collection index {index + 1}"); // count is index+1
                 return false;
             }
 

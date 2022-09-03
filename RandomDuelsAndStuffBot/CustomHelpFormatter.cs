@@ -20,12 +20,12 @@ namespace RandomDuelsAndStuffBot
         {
             if (cmd is CommandGroup)
             {
-                _ = Message.WithTitle($"Group `{cmd.Name}`")
+                 Message.WithTitle($"Group `{cmd.Name}`")
                     .WithDescription(cmd.Description);
                 return this;
             }
 
-            _ = Message.WithTitle($"Command `{cmd.Name}`")
+             Message.WithTitle($"Command `{cmd.Name}`")
                 .WithDescription(cmd.Description);
 
 
@@ -45,7 +45,7 @@ namespace RandomDuelsAndStuffBot
 
             if (!string.IsNullOrEmpty(args))
             {
-                _ = Message.AddField("Arguments", args);
+                 Message.AddField("Arguments", args);
             }
 
             string aliasesList = string.Empty;
@@ -57,14 +57,14 @@ namespace RandomDuelsAndStuffBot
 
             if (!string.IsNullOrEmpty(aliasesList))
             {
-                _ = Message.AddField("Aliases", aliasesList);
+                 Message.AddField("Aliases", aliasesList);
             }
 
             return this;
         }
         public override BaseHelpFormatter WithSubcommands(IEnumerable<Command> subcommands)
         {
-            _ = Message.WithTitle("Available commands");
+             Message.WithTitle("Available commands");
 
             string cmds = string.Empty;
             string groups = string.Empty;
@@ -80,11 +80,11 @@ namespace RandomDuelsAndStuffBot
                 cmds += $"`{i.Name}`: {i.Description}{Globals.NL}";
             }
 
-            _ = Message.WithDescription(cmds);
+             Message.WithDescription(cmds);
 
             if (!string.IsNullOrEmpty(groups))
             {
-                _ = Message.AddField("Available groups", groups);
+                 Message.AddField("Available groups", groups);
             }
 
             return this;
