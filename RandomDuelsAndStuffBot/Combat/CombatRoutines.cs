@@ -230,7 +230,7 @@ namespace RandomDuelsAndStuffBot.Combat
             DiscordEmoji arEmoji = DiscordEmoji.FromName(ctx.Client, ":shield:");
             DiscordEmoji mrEmoji = DiscordEmoji.FromName(ctx.Client, ":zap:");
 
-             msg.ClearFields()
+            msg.ClearFields()
                 // Embed footers in Discord don't support Twemoji, so it looks kinda ugly...
                 //.WithFooter($"Health {hpEmoji}, Mana {manaEmoji}, Attack Damage {adEmoji}, Ability Power {apEmoji}, Armor {arEmoji}, Magic Resist {mrEmoji}{NL}Basic Attack {swordEmoji}, Skills {oneEmoji}{twoEmoji}{threeEmoji}")
                 .AddField("Your stats", $"{hpEmoji} {tempPlayer.Health}/{p.MaxHealth}{Globals.NL}{manaEmoji} {tempPlayer.Mana}/{p.MaxMana}{Globals.NL}{adEmoji} {p.AttackDamage}, {apEmoji} {p.AbilityPower}{Globals.NL}{arEmoji} {p.Armor}, {mrEmoji} {p.MagicResist}")

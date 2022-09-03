@@ -45,7 +45,7 @@ namespace RandomDuelsAndStuffBot.Commands
                 Description = contents
             }.Build();
 
-             await ctx.RespondAsync(msg);
+            await ctx.RespondAsync(msg);
         }
 
         [Command("inventory"), Description("View an item in your inventory via index")]
@@ -79,61 +79,61 @@ namespace RandomDuelsAndStuffBot.Commands
             {
                 if (convert.MaxHealth != 0)
                 {
-                     msg.AddField("Max Health", convert.MaxHealth.ToString());
+                    msg.AddField("Max Health", convert.MaxHealth.ToString());
                 }
 
                 if (convert.MaxMana != 0)
                 {
-                     msg.AddField("Max Mana", convert.MaxMana.ToString());
+                    msg.AddField("Max Mana", convert.MaxMana.ToString());
                 }
 
                 if (convert.AttackDamage != 0)
                 {
-                     msg.AddField("Attack Damage", convert.AttackDamage.ToString());
+                    msg.AddField("Attack Damage", convert.AttackDamage.ToString());
                 }
 
                 if (convert.AbilityPower != 0)
                 {
-                     msg.AddField("Ability Power", convert.AbilityPower.ToString());
+                    msg.AddField("Ability Power", convert.AbilityPower.ToString());
                 }
 
                 if (convert.CritChance != 0)
                 {
-                     msg.AddField("Crit Chance", convert.CritChance.ToString());
+                    msg.AddField("Crit Chance", convert.CritChance.ToString());
                 }
 
                 if (convert.CritDamage != 0)
                 {
-                     msg.AddField("Bonus Crit Damage", convert.CritDamage.ToString());
+                    msg.AddField("Bonus Crit Damage", convert.CritDamage.ToString());
                 }
 
                 if (convert.ArmorPenPercent != 0 || convert.ArmorPenFlat != 0)
                 {
-                     msg.AddField("Armor Pen (flat|%)", $"{convert.ArmorPenFlat} | {convert.ArmorPenPercent}%");
+                    msg.AddField("Armor Pen (flat|%)", $"{convert.ArmorPenFlat} | {convert.ArmorPenPercent}%");
                 }
 
                 if (convert.MagicPenPercent != 0 || convert.MagicPenFlat != 0)
                 {
-                     msg.AddField("Magic Pen (flat|%)", $"{convert.MagicPenFlat} | {convert.MagicPenPercent}%");
+                    msg.AddField("Magic Pen (flat|%)", $"{convert.MagicPenFlat} | {convert.MagicPenPercent}%");
                 }
 
                 if (convert.Omnivamp != 0)
                 {
-                     msg.AddField("Omnivamp", convert.Omnivamp.ToString());
+                    msg.AddField("Omnivamp", convert.Omnivamp.ToString());
                 }
 
                 if (convert.Armor != 0)
                 {
-                     msg.AddField("Armor", convert.Armor.ToString());
+                    msg.AddField("Armor", convert.Armor.ToString());
                 }
 
                 if (convert.MagicResist != 0)
                 {
-                     msg.AddField("Magic Resist", convert.MagicResist.ToString());
+                    msg.AddField("Magic Resist", convert.MagicResist.ToString());
                 }
             }
 
-             await ctx.RespondAsync(msg.Build());
+            await ctx.RespondAsync(msg.Build());
         }
 
         [Command("equip"), Description("Equip an item via inventory index and equip slot; Valid equip slots: `slot1`, `slot2`, `slot3`, `slot4`, `slot5`, `slot6`")]
@@ -162,7 +162,7 @@ namespace RandomDuelsAndStuffBot.Commands
 
             if (item is not EquippableItem ret)
             {
-                 await ctx.RespondAsync(msg
+                await ctx.RespondAsync(msg
                     .WithTitle("Invalid item to equip")
                     .WithDescription("This isn't a valid equippable item!")
                     .WithColor(Globals.ColorRed));
@@ -171,7 +171,7 @@ namespace RandomDuelsAndStuffBot.Commands
 
             p.Inventory.RemoveAt(index);
 
-             await ctx.RespondAsync(msg
+            await ctx.RespondAsync(msg
                 .WithTitle($"Equipping item `{ret.Name}`... in slot `{slot}`")
                 .WithDescription("...successful! (note: if you had a previously equipped item in the slot, it has now been returned to your inventory)")
                 .WithColor(Globals.ColorGreen)
@@ -240,7 +240,7 @@ namespace RandomDuelsAndStuffBot.Commands
                     Color = Globals.ColorRed
                 };
 
-                 await ctx.RespondAsync(err.Build());
+                await ctx.RespondAsync(err.Build());
                 return;
             }
         }
@@ -267,7 +267,7 @@ namespace RandomDuelsAndStuffBot.Commands
             {
                 if (p.Slot1 is null)
                 {
-                     await ctx.RespondAsync(noequip);
+                    await ctx.RespondAsync(noequip);
                     return;
                 }
                 else
@@ -280,7 +280,7 @@ namespace RandomDuelsAndStuffBot.Commands
             {
                 if (p.Slot2 is null)
                 {
-                     await ctx.RespondAsync(noequip);
+                    await ctx.RespondAsync(noequip);
                     return;
                 }
                 else
@@ -293,7 +293,7 @@ namespace RandomDuelsAndStuffBot.Commands
             {
                 if (p.Slot3 is null)
                 {
-                     await ctx.RespondAsync(noequip);
+                    await ctx.RespondAsync(noequip);
                     return;
                 }
                 else
@@ -306,7 +306,7 @@ namespace RandomDuelsAndStuffBot.Commands
             {
                 if (p.Slot4 is null)
                 {
-                     await ctx.RespondAsync(noequip);
+                    await ctx.RespondAsync(noequip);
                     return;
                 }
                 else
@@ -319,7 +319,7 @@ namespace RandomDuelsAndStuffBot.Commands
             {
                 if (p.Slot5 is null)
                 {
-                     await ctx.RespondAsync(noequip);
+                    await ctx.RespondAsync(noequip);
                     return;
                 }
                 else
@@ -332,7 +332,7 @@ namespace RandomDuelsAndStuffBot.Commands
             {
                 if (p.Slot6 is null)
                 {
-                     await ctx.RespondAsync(noequip);
+                    await ctx.RespondAsync(noequip);
                     return;
                 }
                 else
@@ -350,11 +350,11 @@ namespace RandomDuelsAndStuffBot.Commands
                     Color = Globals.ColorRed
                 };
 
-                 await ctx.RespondAsync(err.Build());
+                await ctx.RespondAsync(err.Build());
                 return;
             }
 
-             await ctx.RespondAsync(new DiscordEmbedBuilder()
+            await ctx.RespondAsync(new DiscordEmbedBuilder()
                 .WithColor(Globals.ColorGreen)
                 .WithTitle("Unequipping item...")
                 .WithDescription($"Item `{i.Name}` successfully unequipped from slot `{slot}`")
